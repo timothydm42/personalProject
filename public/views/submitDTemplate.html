@@ -1,0 +1,26 @@
+
+
+
+<link rel="stylesheet" href="../styles/submitDir.css"/>
+
+<div class="view">
+  <div class="title">
+  <h1>Submission</h1>
+  </div>
+  <!--create angular stuff-->
+
+  <form>
+    <div class="submission">
+      <input type="text" id="thesis" name="post_thesis" placeholder="Thesis" ng-model="post.thesis">
+    </div>
+    <div class="submission">
+      <input type="url" id="source" name="post_source" placeholder="Source" ng-model="post.source">
+    </div>
+    <div class="submission">
+      <textarea id="explanation" name="body_text" placeholder="Elaborate; direct us to a specific portion of your source; etc." ng-model="post.explanation"></textarea>
+    </div>
+    <div class="submission">
+      <button type="button">Post</button>
+    </div>
+  </form>
+<div>
