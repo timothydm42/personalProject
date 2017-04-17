@@ -4,8 +4,14 @@ angular.module("placid").directive("singlePostDir",[function(){
     restrict:"E",
     scope:{},
     controller:["$scope","$state","placidService",function($scope,$state,placidService){
-      $scope.test = $state.params.id;
 
+      var getPost = () => {
+        placidService.getPost($state.params.id).then((result)=>{
+          $scope.post = result.data
+          console.log($scope.post)
+        })
+      }
+      getPost()
     }]
   }
 }])

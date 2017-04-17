@@ -28,6 +28,11 @@ main {
   left: 0px;
   font-size: 75px; }
 
+* {
+  box-sizing: border-box;
+  background-color: black;
+  color: gray;
+  font-family: helvetica; }
 
 
 * {
