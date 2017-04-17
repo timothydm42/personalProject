@@ -4,6 +4,30 @@
   color: gray;
   font-family: helvetica; }
 
+.allPostsTitle {
+  text-align: center;
+  font-size: 60px; }
+
+main {
+  display: flex;
+  justify-content: space-around; }
+
+.postCollection {
+  padding: 3px;
+  margin: 6px;
+  border: 2px solid gray;
+  font-size: 51px;
+  text-align: center; }
+
+.postButton {
+  width: 100%;
+  background-color: gray;
+  color: black;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  font-size: 75px; }
+
 
 * {
   box-sizing: border-box;

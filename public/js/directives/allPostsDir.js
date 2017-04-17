@@ -12,5 +12,4 @@ angular.module("placid").directive("allPostsDir",function(){
       getTheses();
     }]
   }
-
 })

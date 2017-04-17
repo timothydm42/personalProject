@@ -1,6 +1,16 @@
 
 <link rel="stylesheet" href="../styles/allPostsDir.css"/>
 
-<h1>All Posts</h1>
+<h1 class="allPostsTitle">All Posts</h1>
 
-{{theses}}
+<!--{{theses}}-->
+
+<main>
+  <a ui-sref="">
+    <div class="postCollection" ng-repeat="t in theses">
+      {{t.thesis}}
+    </div>
+  </a>
+</main>
+
+<button class="postButton"> + </button>
