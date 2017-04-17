@@ -6,8 +6,8 @@ const db =  massive.connectSync({
   connectionString : "postgres://"+sessSecret.dbUsername+":"+sessSecret.dbPassword+"@"+sessSecret.dbEndpoint,
 })
 
-exports.getTheses = (req,res,next) => {
-  db.run("select thesis from allposts",(err,theses) => {
+exports.getThesesWId = (req,res,next) => {
+  db.run("select id,thesis from allposts",(err,theses) => {
     res.send(theses);
   })
 };

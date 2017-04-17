@@ -4,12 +4,13 @@ angular.module("placid").directive("allPostsDir",function(){
     restrict:"E",
     scope:{},
     controller:["$scope","placidService",function($scope,placidService){
-      var getTheses = () => {
-        placidService.getTheses().then((result)=>{
+      var getThesesWId = () => {
+        placidService.getThesesWId().then((result)=>{
           $scope.theses = result.data;
+          //console.log($scope.theses)
         })
       };
-      getTheses();
+      getThesesWId();
     }]
   }
 })

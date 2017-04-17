@@ -27,6 +27,6 @@ app.use(session({
 
 app.post("/submit",toneCtrl.respond); //remember to Not invoke the callbacks...
 
-app.get("/theses",massiveCtrl.getTheses);
+app.get("/theses",massiveCtrl.getThesesWId);
 
 app.listen(3000,()=>console.log("3000 baby"))

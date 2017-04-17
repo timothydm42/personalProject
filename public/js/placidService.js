@@ -8,7 +8,7 @@ angular.module("placid").service("placidService",["$http","$q",function($http,$q
     })
   };
 
-  this.getTheses = (postObj) => {
+  this.getThesesWId = (postObj) => {
     return $http({
       url:"http://localhost:3000/theses",
       method:"GET",

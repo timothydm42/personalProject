@@ -3,8 +3,8 @@ angular.module("placid").directive("singlePostDir",[function(){
     templateUrl:"./views/singlePostDTemplate.html",
     restrict:"E",
     scope:{},
-    controller:["$scope",function($scope){
-      $scope.test = "hey";
+    controller:["$scope","$state","placidService",function($scope,$state,placidService){
+      $scope.test = $state.params.id;
 
     }]
   }

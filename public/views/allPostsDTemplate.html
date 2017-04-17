@@ -3,14 +3,12 @@
 
 <h1 class="allPostsTitle">All Posts</h1>
 
-<!--{{theses}}-->
+<!-- {{theses}} -->
 
 <main>
-  <a ui-sref="">
-    <div class="postCollection" ng-repeat="t in theses">
-      {{t.thesis}}
-    </div>
-  </a>
+  <button class="postCollection" ng-repeat="t in theses" ui-sref="post({id : t.id})">
+    {{t.thesis}}
+  </button>
 </main>
 
 <button class="postButton"> + </button>
