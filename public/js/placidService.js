@@ -13,6 +13,13 @@ angular.module("placid").service("placidService",["$http","$q",function($http,$q
       url:"http://localhost:3000/theses",
       method:"GET",
     })
+  };
+
+  this.getPost = (id) => {
+    return $http({
+      url:"http://localhost:3000/post/" + id,
+      method:"GET",
+    })
   }
 
 }])

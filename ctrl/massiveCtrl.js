@@ -11,3 +11,10 @@ exports.getThesesWId = (req,res,next) => {
     res.send(theses);
   })
 };
+
+exports.getPost = (req,res,next) => {
+  let id = Number(req.params.id);
+  db.allposts.findOne(id,(err,post) => {
+    res.send(post);
+  })
+};

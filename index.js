@@ -29,4 +29,6 @@ app.post("/submit",toneCtrl.respond); //remember to Not invoke the callbacks...
 
 app.get("/theses",massiveCtrl.getThesesWId);
 
+app.get("/post/:id",massiveCtrl.getPost);
+
 app.listen(3000,()=>console.log("3000 baby"))
