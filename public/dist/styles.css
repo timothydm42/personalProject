@@ -1,8 +1,14 @@
 * {
+  box-sizing: border-box;
+  background-color: black;
+  color: gray;
   font-family: helvetica; }
+
 
 * {
   box-sizing: border-box;
+  background-color: black;
+  color: gray;
   font-family: helvetica; }
 
 .view {
