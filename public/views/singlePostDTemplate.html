@@ -1,15 +1,14 @@
 
 <link rel="stylesheet" href="../styles/singlePostDir.css"/>
 
-<h1>{{post.thesis}}</h1>
+<section>
+  <h1 class="allPostsTitle">{{post.thesis}}</h1>
 
-<p>
-<a target="_blank" href={{post.link}}>Link</a>
-</p>
+  <p>
+  <a target="_blank" href={{post.link}}>{{link}}</a>
+  </p>
 
-<p>
-  {{post.body}}
-</p>
-
-
-{{post}}
+  <p>
+    {{post.body}}
+  </p>
+</section>

@@ -5,10 +5,34 @@ angular.module("placid").directive("singlePostDir",[function(){
     scope:{},
     controller:["$scope","$state","placidService",function($scope,$state,placidService){
 
-      var getPost = () => {
+      let getDomainName = (url) => {
+
+        var test = url.split("//");
+        if(test.length > 1 && test[0][0]==="h" && test[1][0] !== "w") {
+          var rStr = url.split("//")[1].split("/")[0];
+          return rStr;
+        }
+        if(test.length > 1 && test[1][0]==="w") {
+          var pArray = test[1].split("/");
+          var rHWStr = pArray[0];
+          return rHWStr;
+        }
+        if(test.length === 1 && url[0] != "w"){
+          var rSStr = url.slice(0,url.indexOf("/"));
+          return rSStr;
+        }
+        else {
+          var wArray = url.split("/");
+          var rwStr = wArray[0];
+          return rwStr;
+        }
+      }
+
+      let getPost = () => {
         placidService.getPost($state.params.id).then((result)=>{
           $scope.post = result.data
-          console.log($scope.post)
+          $scope.link = getDomainName(result.data.link)
+          //console.log($scope.post)
         })
       }
       getPost()
