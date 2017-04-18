@@ -16,7 +16,7 @@ module.exports = {
 
   getScore: (req,res,next) => {
     return tonePromise = new Promise ((resolve,reject)=>{
-      toneAnalyzer.tone({text:req.body.text},(err, tone) => {
+      toneAnalyzer.tone({text:req.body.thesis + " " + req.body.explanation},(err, tone) => {
         if (err) {
           console.log(err);
           next();

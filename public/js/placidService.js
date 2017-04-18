@@ -1,6 +1,7 @@
 angular.module("placid").service("placidService",["$http","$q",function($http,$q){
 
-  this.postTester = (postObj) => {
+  this.testPost = (postObj) => {
+    console.log(postObj)
     return $http({
       url:"http://localhost:3000/submit",
       method:"POST",
