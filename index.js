@@ -25,7 +25,7 @@ app.use(session({
   saveUninitialized: true
 }))
 
-app.post("/submit",toneCtrl.respond); //remember to Not invoke the callbacks...
+app.post("/submit",toneCtrl.decide); //remember to Not invoke the callbacks...
 
 app.get("/theses",massiveCtrl.getThesesWId);
 

@@ -29,10 +29,24 @@ module.exports = {
     })
   },
 
-  respond: (req,res,next) => {
+  decide: (req,res,next) => {
     module.exports.getScore(req,res,next).then(result=>{
-      console.log(result);
-      res.send(result);
+      //console.log(result);
+      let workResult = JSON.parse(result);
+      console.log(workResult)
+      let responseStr = "your submission has been posted to the homepage";
+      let violationsArr = workResult.document_tone.tone_categories[0].tones.filter((e,i)=> i != 2 && i != 4 && Number(e.score) > 0.35);
+      if (violationsArr) {
+        let badSentences = workResult.sentences_tone.filter((e,i,a)=>{
+          return e.tone_categories[0].tones.find((el,ind,arr)=>ind != 2 && ind != 4 && Number(el.score) > 0.35)
+        })
+        console.log(badSentences);
+        res.send(badSentences);
+      }
+      else {
+        console.log(responseStr);
+        res.send(responseStr);
+      }
     })
   },
 
