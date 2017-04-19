@@ -52,7 +52,7 @@ section {
 
 .view {
   box-sizing: border-box;
-  height: 60vh;
+  height: 60%;
   position: fixed;
   left: 0px;
   right: 0px;
@@ -65,8 +65,8 @@ section {
 
 .submission {
   height: 21%;
-  width: 90%;
-  margin: 9px;
+  width: 95%;
+  margin: 6px;
   padding: 0;
   border: 0; }
 
@@ -74,7 +74,6 @@ form {
   height: 100%;
   box-sizing: border-box;
   display: flex;
-  flex-shrink: 1;
   align-items: center;
   flex-direction: column;
   border: 2px solid lightblue; }
