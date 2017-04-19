@@ -23,7 +23,7 @@ module.exports = {
         }
         else {
           console.log("yep");
-          resolve(JSON.stringify(tone, null, 2));
+          resolve(tone, null, 2);
         }
       });
     })
@@ -32,20 +32,24 @@ module.exports = {
   decide: (req,res,next) => {
     module.exports.getScore(req,res,next).then(result=>{
       //console.log(result);
-      let workResult = JSON.parse(result);
-      console.log(workResult)
-      let responseStr = "your submission has been posted to the homepage";
-      let violationsArr = workResult.document_tone.tone_categories[0].tones.filter((e,i)=> i != 2 && i != 4 && Number(e.score) > 0.35);
-      if (violationsArr) {
+      let workResult = result;
+      //console.log(workResult)
+      let violationTest = workResult.document_tone.tone_categories[0].tones.find((e,i)=> i != 2 && i != 4 && Number(e.score) > 0.35);
+      if (violationTest) {
+        let correctionsArr = [];
         let badSentences = workResult.sentences_tone.filter((e,i,a)=>{
           return e.tone_categories[0].tones.find((el,ind,arr)=>ind != 2 && ind != 4 && Number(el.score) > 0.35)
         })
-        console.log(badSentences);
-        res.send(badSentences);
+        badSentences.forEach((e)=>{
+          correctionsArr.push({sentence:e.text,emotion:e.tone_categories[0].tones.find((el,ind,arr)=>ind != 2 && ind != 4 && Number(el.score) > 0.35).tone_id})
+        })
+
+        console.log(correctionsArr);
+        res.send(correctionsArr);
       }
       else {
-        console.log(responseStr);
-        res.send(responseStr);
+        console.log("your submission has been posted to the homepage");
+        res.send("your submission has been posted to the homepage");
       }
     })
   },
