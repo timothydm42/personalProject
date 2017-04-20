@@ -25,9 +25,6 @@ angular.module("placid").directive("submitDir",[function(){
               console.log("here!!! as well")
               $scope.determination = result.data
               $scope.isHidden = true
-              for (let prop in $scope.post){
-                $scope.post[prop] = ""
-              }
             })
           }
           else {

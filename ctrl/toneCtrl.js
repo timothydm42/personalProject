@@ -29,7 +29,7 @@ module.exports = {
     })
   },
 
-  getToneViolations: (toneObj) => {
+  determineViolations: (toneObj) => {
     let workResult = toneObj;
 
     let correctionsArr = [];
@@ -51,7 +51,7 @@ module.exports = {
 
   referenceToneAnalyzer: (req,res,next) => {
     module.exports.getScore(req,res,next).then(result=>{
-      res.send(module.exports.getToneViolations(result));
+      res.send(module.exports.determineViolations(result));
     });
   },
 
