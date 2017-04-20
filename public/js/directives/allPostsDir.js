@@ -5,7 +5,9 @@ angular.module("placid").directive("allPostsDir",function(){
     scope:{},
     controller:["$scope","placidService",function($scope,placidService){
       var getThesesWId = () => {
+        $scope.fetchMessage = "fetching posts :)"
         placidService.getThesesWId().then((result)=>{
+          $scope.fetchMessage = "";
           $scope.theses = result.data;
           //console.log($scope.theses)
         })

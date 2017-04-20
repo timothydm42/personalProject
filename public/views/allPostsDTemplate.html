@@ -6,9 +6,10 @@
 <!-- {{theses}} -->
 
 <main>
+  {{fetchMessage}}
   <button class="postCollection" ng-repeat="t in theses" ui-sref="post({id : t.id})">
     {{t.thesis}}
   </button>
 </main>
 
-<button class="postButton"> + </button>
+<a ui-sref="submit"><button class="postButton" type="button"> + </button></a>
