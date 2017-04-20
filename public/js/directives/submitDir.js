@@ -5,8 +5,8 @@ angular.module("placid").directive("submitDir",[function(){
     scope:{},
     controller:["$scope","placidService",function($scope,placidService){
       $scope.determination = ""
-      $scope.isHidden = false;
       $scope.testPost = () => {
+        $scope.isHidden = false
         $scope.determination = "robots are reading your post"
         placidService.testPost($scope.post).then((result)=>{
           console.log(result);
