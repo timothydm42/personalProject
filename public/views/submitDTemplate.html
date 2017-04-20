@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="../styles/submitDir.css"/>
 
 {{determination}}
-<div ng-hide="isHidden" class="ng-hide">
+<div ng-hide="isHidden" class="ng-hide" id="feedbackBox">
 <p ng-repeat="f in fixes">"{{f.sentence}}" has too high of a probability of expressing {{f.emotion}}.</p>
 </div>
 

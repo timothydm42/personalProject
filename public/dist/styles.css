@@ -59,9 +59,10 @@ section {
   bottom: 0px;
   border: 5px solid lightgreen; }
 
-.ng-hide {
+#feedbackBox {
   margin-bottom: 60vh;
-  border: 3px solid red; }
+  border: 3px solid red;
+  font-size: 2vh; }
 
 .title {
   text-align: center;

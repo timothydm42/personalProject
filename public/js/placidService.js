@@ -7,14 +7,22 @@ angular.module("placid").service("placidService",["$http","$q",function($http,$q
       method:"POST",
       data:postObj
     })
-  };
+  }
+
+  this.postToDB = (postObj) => {
+    return $http({
+      url:"http://localhost:3000/database",
+      method:"POST",
+      data:postObj
+    })
+  }
 
   this.getThesesWId = (postObj) => {
     return $http({
       url:"http://localhost:3000/theses",
       method:"GET",
     })
-  };
+  }
 
   this.getPost = (id) => {
     return $http({

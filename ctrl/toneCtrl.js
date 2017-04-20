@@ -29,26 +29,30 @@ module.exports = {
     })
   },
 
-  decide: (req,res,next) => {
-    module.exports.getScore(req,res,next).then(result=>{
-      let workResult = result;
+  getToneViolations: (toneObj) => {
+    let workResult = toneObj;
 
-      let correctionsArr = [];
-      let badSentences = workResult.sentences_tone.filter((e,i,a)=>{
-        return e.tone_categories[0].tones.find((el,ind,arr)=>ind != 2 && ind != 4 && Number(el.score) > 0.35)
-      })
-      badSentences.forEach((e)=>{
-        correctionsArr.push({sentence:e.text,emotion:e.tone_categories[0].tones.find((el,ind,arr)=>ind != 2 && ind != 4 && Number(el.score) > 0.35).tone_id})
-      })
-      if(correctionsArr.length) {
-        console.log(correctionsArr);
-        res.send(correctionsArr);
-      }
-      else {
-        console.log("your submission has been posted to the homepage");
-        res.send("your submission has been posted to the homepage");
-      }
+    let correctionsArr = [];
+    let badSentences = workResult.sentences_tone.filter((e,i,a)=>{
+      return e.tone_categories[0].tones.find((el,ind,arr)=>ind != 2 && ind != 4 && Number(el.score) > 0.35)
     })
+    badSentences.forEach((e)=>{
+      correctionsArr.push({sentence:e.text,emotion:e.tone_categories[0].tones.find((el,ind,arr)=>ind != 2 && ind != 4 && Number(el.score) > 0.35).tone_id})
+    })
+    if(correctionsArr.length) {
+      console.log(correctionsArr);
+      return correctionsArr;
+    }
+    else {
+      console.log("checking submission against our database");
+      return "checking your submission against our database";
+    }
+  },
+
+  referenceToneAnalyzer: (req,res,next) => {
+    module.exports.getScore(req,res,next).then(result=>{
+      res.send(module.exports.getToneViolations(result));
+    });
   },
 
 };

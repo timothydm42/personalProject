@@ -13,7 +13,7 @@ const app = express();
 
 const corsOptions = {
   origin:"http://localhost:3000",
-}
+};
 
 
 app.use(express.static(__dirname + "/public"))
@@ -25,10 +25,12 @@ app.use(session({
   saveUninitialized: true
 }))
 
-app.post("/submit",toneCtrl.decide); //remember to Not invoke the callbacks...
+app.post("/submit",toneCtrl.referenceToneAnalyzer); //remember to Not invoke the callbacks...
+
+app.post("/database",massiveCtrl.postToDB);
 
 app.get("/theses",massiveCtrl.getThesesWId);
 
 app.get("/post/:id",massiveCtrl.getPost);
 
-app.listen(3000,()=>console.log("3000 baby"))
+app.listen(3000,()=>console.log("3000 baby"));
