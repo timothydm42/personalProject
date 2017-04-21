@@ -1,14 +1,25 @@
 
 <link rel="stylesheet" href="../styles/singlePostDir.css"/>
 
-<section>
+<section class="postSection">
   <h1 class="allPostsTitle">{{post.thesis}}</h1>
-
-  <p>
-  <a target="_blank" href={{post.link}}>{{link}}</a>
-  </p>
 
   <p>
     {{post.body}}
   </p>
+
+  <p>
+  <a target="_blank" href={{post.link}}>{{link}}</a>
+  </p>
+</section>
+<section class="linkSection">
+  <h3>Source Info</h3>
+  <ul>
+      <li>Linked Article Title: {{linkAnalysis.title}}</li>
+      <li>Author: {{linkAnalysis.authors[0].name}}</li>
+      <li>Date Published: {{linkAnalysis.pubDate}}</li>
+      <ul>Neutral resources for additional Context:
+          <li ng-repeat="s in linkAnalysis.supplements"><a href={{s.link}}>{{s.title}}</a></li>
+      </ul>
+  </ul>
 </section>

@@ -35,6 +35,7 @@ angular.module("placid").directive("singlePostDir",[function(){
           //console.log($scope.post)
           placidService.getLinkContext(result.data.link).then(result=>{
             console.log(result)
+            $scope.linkAnalysis = result.data
           })
         })
       }

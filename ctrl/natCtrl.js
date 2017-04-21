@@ -9,7 +9,6 @@ const natural_language_understanding = new NaturalLanguageUnderstandingV1({
 });
 
 exports.analyzeLink = (req,res,next) =>{
-  console.log(req.body)
   var parameters = {
     'url': req.body.url,
     'features': {
@@ -31,8 +30,30 @@ exports.analyzeLink = (req,res,next) =>{
   });
 };
 
+exports.describeLink = (linkObj) => {
+  return {
+            title:linkObj.metadata.title,
+            pubDate:new Date(linkObj.metadata.publication_date).toLocaleDateString(),
+            authors:linkObj.metadata.authors,
+            supplements:[
+                          {
+                            title:linkObj.concepts[0].text,
+                            link:linkObj.concepts[0].dbpedia_resource
+                          },
+                          {
+                            title:linkObj.concepts[1].text,
+                            link:linkObj.concepts[1].dbpedia_resource
+                          },
+                          {
+                            title:linkObj.concepts[2].text,
+                            link:linkObj.concepts[2].dbpedia_resource
+                          }
+                        ]
+         };
+};
+
 exports.getLinkContext = (req,res,next) => {
   exports.analyzeLink(req,res,next).then(result=>{
-    res.send(result);
+    res.send(exports.describeLink(result));
   })
 };

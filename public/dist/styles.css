@@ -38,10 +38,12 @@ main {
   text-align: center;
   font-size: 60px; }
 
-section {
+.postSection {
   font-size: 51px;
-  text-align: center;
-  margin: 3px; }
+  text-align: right;
+  margin: 3px;
+  border: 1px solid gray;
+  border-radius: 3px; }
 
 
 * {
