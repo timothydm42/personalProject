@@ -31,4 +31,12 @@ angular.module("placid").service("placidService",["$http","$q",function($http,$q
     })
   }
 
+  this.getLinkContext = (url) => {
+    return $http({
+      url:"http://localhost:3000/link",
+      method:"PUT",
+      data:{"url":url}
+    })
+  }
+
 }])

@@ -29,10 +29,13 @@ angular.module("placid").directive("singlePostDir",[function(){
       }
 
       let getPost = () => {
-        placidService.getPost($state.params.id).then((result)=>{
+        placidService.getPost($state.params.id).then(result=>{
           $scope.post = result.data
           $scope.link = getDomainName(result.data.link)
           //console.log($scope.post)
+          placidService.getLinkContext(result.data.link).then(result=>{
+            console.log(result)
+          })
         })
       }
       getPost()

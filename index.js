@@ -34,6 +34,6 @@ app.get("/theses",massiveCtrl.getThesesWId);
 
 app.get("/post/:id",massiveCtrl.getPost);
 
-app.get("/link",natCtrl.analyzeLink);
+app.put("/link",natCtrl.getLinkContext);
 
 app.listen(3000,()=>console.log("3000 baby"));

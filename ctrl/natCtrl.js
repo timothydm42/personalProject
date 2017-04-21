@@ -8,19 +8,18 @@ const natural_language_understanding = new NaturalLanguageUnderstandingV1({
   'version_date': '2017-02-27'
 });
 
+exports.analyzeLink = (req,res,next) =>{
+  console.log(req.body)
+  var parameters = {
+    'url': req.body.url,
+    'features': {
+      'concepts': {
+        'limit': 3
+      },
+      'metadata': {}
+    }
+  };
 
-
-var parameters = {
-  'url': 'http://www.epi.org/publication/ib364-corporate-tax-rates-and-economic-growth/',
-  'features': {
-    'concepts': {
-      'limit': 1
-    },
-    'metadata': {}
-  }
-}
-
-exports.analyzeLink = () =>{
   return linkPromise = new Promise ((resolve,reject)=>{
     natural_language_understanding.analyze(parameters, function(err, response) {
       if (err)
@@ -30,4 +29,10 @@ exports.analyzeLink = () =>{
         resolve(response, null, 2);
     });
   });
+};
+
+exports.getLinkContext = (req,res,next) => {
+  exports.analyzeLink(req,res,next).then(result=>{
+    res.send(result);
+  })
 };
