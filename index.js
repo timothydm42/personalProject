@@ -1,6 +1,7 @@
 
 const sessSecret = require("./.config.js"),
       toneCtrl = require("./ctrl/toneCtrl.js"),
+      natCtrl = require("./ctrl/natCtrl.js"),
       massiveCtrl = require("./ctrl/massiveCtrl.js");
 
 const express = require("express"),
@@ -32,5 +33,7 @@ app.post("/database",massiveCtrl.postToDB);
 app.get("/theses",massiveCtrl.getThesesWId);
 
 app.get("/post/:id",massiveCtrl.getPost);
+
+app.get("/link",natCtrl.analyzeLink);
 
 app.listen(3000,()=>console.log("3000 baby"));

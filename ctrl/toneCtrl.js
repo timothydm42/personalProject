@@ -4,13 +4,11 @@ const sessSecret = require("../.config.js");
 const toneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
 
 var toneAnalyzer = new toneAnalyzerV3({
-  username: sessSecret.username,
-  password: sessSecret.password,
+  username: sessSecret.usernameTone,
+  password: sessSecret.passwordTone,
   version: 'v3',
   version_date: '2016-05-19'
 });
-
-
 
 module.exports = {
 
@@ -26,7 +24,7 @@ module.exports = {
           resolve(tone, null, 2);
         }
       });
-    })
+    });
   },
 
   determineViolations: (toneObj) => {
@@ -39,7 +37,7 @@ module.exports = {
     badSentences.forEach((e,i,a)=>{
       if(i === a.findIndex(f=>f.text === e.text)) {
         correctionsArr.push({sentence:e.text,emotion:e.tone_categories[0].tones.find((el,ind,arr)=>ind != 2 && ind != 4 && Number(el.score) > 0.35).tone_id})
-      }  
+      }
     })
     if(correctionsArr.length) {
       console.log(correctionsArr);
