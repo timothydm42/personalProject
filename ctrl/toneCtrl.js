@@ -36,8 +36,10 @@ module.exports = {
     let badSentences = workResult.sentences_tone.filter((e,i,a)=>{
       return e.tone_categories[0].tones.find((el,ind,arr)=>ind != 2 && ind != 4 && Number(el.score) > 0.35)
     })
-    badSentences.forEach((e)=>{
-      correctionsArr.push({sentence:e.text,emotion:e.tone_categories[0].tones.find((el,ind,arr)=>ind != 2 && ind != 4 && Number(el.score) > 0.35).tone_id})
+    badSentences.forEach((e,i,a)=>{
+      if(i === a.findIndex(f=>f.text === e.text)) {
+        correctionsArr.push({sentence:e.text,emotion:e.tone_categories[0].tones.find((el,ind,arr)=>ind != 2 && ind != 4 && Number(el.score) > 0.35).tone_id})
+      }  
     })
     if(correctionsArr.length) {
       console.log(correctionsArr);
