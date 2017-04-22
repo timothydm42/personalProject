@@ -15,6 +15,10 @@ angular.module("placid").directive("submitDir",[function(){
 
         if($state.params.id) $scope.post.id = $state.params.id
 
+        for (let prop in $scope.post){
+          if(!$scope.post[prop]) $scope.post[prop] = null;
+        }
+
         placidService.testPost($scope.post).then(result=>{
           $scope.determination = ""
           console.log(JSON.stringify($scope.post, null, 2) + "here")
