@@ -31,6 +31,6 @@ exports.postToDB = (req,res,next) => {
 };
 
 exports.parseErrorMessage = (errObj) => {
-  if (/thesis/.test(errObj.detail)) return "That thesis has already been asserted. See homepage to contribute to the discussion"
+  if (/thesis/.test(errObj.detail)) return "Your post is denied because that thesis has alread been asserted"
   else return "Please fill out all text boxes with correct data"
 };

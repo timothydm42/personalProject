@@ -1,25 +1,28 @@
 
 <link rel="stylesheet" href="../styles/singlePostDir.css"/>
 
-<section class="postSection">
+<div class="postSection">
   <h1 class="allPostsTitle">{{post.thesis}}</h1>
 
   <p>
     {{post.body}}
   </p>
+  <div class="sourceMaterial">
 
-  <p>
-  <a target="_blank" href={{post.link}}>{{link}}</a>
-  </p>
-</section>
-<section class="linkSection">
-  <h3>Source Info</h3>
-  <ul>
-      <li>Linked Article Title: {{linkAnalysis.title}}</li>
-      <li>Author: {{linkAnalysis.authors[0].name}}</li>
-      <li>Date Published: {{linkAnalysis.pubDate}}</li>
-      <ul>Neutral resources for additional Context:
-          <li ng-repeat="s in linkAnalysis.supplements"><a href={{s.link}}>{{s.title}}</a></li>
+    <section class="linkSection">
+      <h3>Source Info</h3>
+      <ul>
+          <li>Linked Article Title: {{linkAnalysis.title}}</li>
+          <li>Author: {{linkAnalysis.authors[0].name}}</li>
+          <li>Date Published: {{linkAnalysis.pubDate}}</li>
+          <ul>Resources for additional Context:
+              <li ng-repeat="s in linkAnalysis.supplements"><a target="_blank" href={{s.link}}>{{s.title}}</a></li>
+          </ul>
       </ul>
-  </ul>
-</section>
+    </section>
+    <section>
+      <p><a target="_blank" href={{post.link}}>{{link}}</a></p>
+    </section>
+  </div>
+</div>
+<a ui-sref="submit({id : id})"><button type="button">respond</button></a>

@@ -7,7 +7,7 @@ angular.module("placid",["ui.router"]).config(["$stateProvider","$urlRouterProvi
     url:"/about",
     template:"<about-dir></about-dir>"
   }).state("submit",{
-    url:"/submit",
+    url:"/submit/:id",
     template:"<submit-dir></submit-dir>"
   }).state("post",{
     url:"/post/:id",
