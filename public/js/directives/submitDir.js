@@ -5,7 +5,7 @@ angular.module("placid").directive("submitDir",[function(){
     scope:{},
     controller:["$scope","$state","placidService",function($scope,$state,placidService){
 
-      $scope.post.id = $state.params.id
+
 
       $scope.determination = ""
 
@@ -13,9 +13,11 @@ angular.module("placid").directive("submitDir",[function(){
         $scope.isHidden = false
         $scope.determination = "robots are reading your post"
 
+        if($state.params.id) $scope.post.id = $state.params.id
+
         placidService.testPost($scope.post).then(result=>{
           $scope.determination = ""
-          console.log(result)
+          console.log(JSON.stringify($scope.post, null, 2) + "here")
           if(result.data === "checking your submission against our database"){
             $scope.determination = result.data
 
