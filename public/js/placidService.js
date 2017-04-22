@@ -33,7 +33,7 @@ angular.module("placid").service("placidService",["$http","$q",function($http,$q
 
   this.getParentResp = (parentId) => {
     return $http({
-      url:"http://localhost:3000/responses" + parentId,
+      url:"http://localhost:3000/responses/" + parentId,
       method:"GET",
     })
   }
