@@ -23,6 +23,7 @@ exports.getParentResp = (req,res,next) => {
   let parentId = Number(req.params.id);
   db.allresponses.find({parent: parentId},(err,responses)=>{
     console.log(JSON.stringify(responses,null,2) + "  here");
+
     res.send(responses);
   });
 };

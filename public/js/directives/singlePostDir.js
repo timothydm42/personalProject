@@ -7,7 +7,7 @@ angular.module("placid").directive("singlePostDir",[function(){
 
       $scope.id = $state.params.id
 
-      let getDomainName = (url) => {
+      $scope.getDomainName = (url) => {
 
         var test = url.split("//")
         if(test.length > 1 && test[0][0]==="h" && test[1][0] !== "w") {
@@ -33,7 +33,7 @@ angular.module("placid").directive("singlePostDir",[function(){
       let getPost = () => {
         placidService.getPost($state.params.id).then(result=>{
           $scope.post = result.data
-          $scope.link = getDomainName(result.data.link)
+          $scope.link = $scope.getDomainName(result.data.link)
           //console.log($scope.post)
           placidService.getLinkContext(result.data.link).then(result=>{
             console.log(result)
@@ -41,7 +41,12 @@ angular.module("placid").directive("singlePostDir",[function(){
           })
         })
       }
+
       getPost()
+      placidService.getParentResp($scope.id).then(result=>{
+        $scope.responses = result.data
+        console.log(result.data)
+      })
     }]
   }
 }])

@@ -13,7 +13,7 @@
       <h3>Source Info</h3>
       <ul>
           <li>Linked Article Title: {{linkAnalysis.title}}</li>
-          <li>Author: {{linkAnalysis.authors[0].name}}</li>
+          <li ng-repeat="a in linkAnalysis.authors">Author: {{a}}</li>
           <li>Date Published: {{linkAnalysis.pubDate}}</li>
           <ul>Resources for additional Context:
               <li ng-repeat="s in linkAnalysis.supplements"><a target="_blank" href={{s.link}}>{{s.title}}</a></li>
@@ -26,5 +26,5 @@
   </div>
 </div>
 <a ui-sref="submit({id : id})"><button type="button">respond</button></a>
-
-<responses parent="id"></responses> <!--this is a custom directive-->
+<h3>Responses</h3>
+<responses ng-repeat="r in responses" response="r" get-domain-name="getDomainName(r.link)"></responses> <!--this is a custom directive-->

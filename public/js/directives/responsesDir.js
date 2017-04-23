@@ -3,15 +3,19 @@ angular.module("placid").directive("responses",[function(){
     templateUrl:"./views/responsesDTemplate.html",
     restrict:"E",
     scope:{
-      parent: "=",
+      response: "=",
+      getDomainName: "&",
     },
     controller:["$scope","placidService",function($scope,placidService){
-      $scope.getParentResp = placidService.getParentResp;
+      $scope.getLinkContext = placidService.getLinkContext;
     }],
     link:function(scope,element,attributes){
-      scope.getParentResp(scope.parent).then(result=>{
-        console.log(result)
-        scope.results = result
+      console.log(JSON.stringify(scope.response, null, 2) + "    link thing___")
+
+      scope.link = scope.getDomainName()
+
+      scope.getLinkContext(scope.response.link).then(result=>{
+        scope.linkAnalysis = result.data
       })
     },
   }
