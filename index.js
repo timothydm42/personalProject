@@ -13,7 +13,7 @@ const express = require("express"),
 const app = express();
 
 const corsOptions = {
-  origin:"http://http://138.68.11.174:3000",
+  origin:"http://138.68.11.174:3000",
 };
 
 
