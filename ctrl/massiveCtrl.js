@@ -30,23 +30,32 @@ exports.getParentResp = (req,res,next) => {
 
 exports.postToDB = (req,res,next) => {
 
-  let dbTable = "allposts";
 
   let tableInsertion = {thesis:req.body.thesis,link:req.body.source,body:req.body.explanation};
 
   if(req.body.id) {
     dbTable = "allresponses";
-    tableInsertion.id = req.body.id;
+    tableInsertion.parent = req.body.id;
+    db.allresponses.insert(tableInsertion,(err)=>{
+      if(err){
+        console.log(err);
+        let errMessage = exports.parseErrorMessage(err)
+        res.status(500).send(errMessage);
+      }
+      else res.send("Your submission will be posted momentarily");
+    });
   }
 
-  db.dbTable.insert(tableInsertion,(err)=>{
-    if(err){
-      console.log(err);
-      let errMessage = exports.parseErrorMessage(err)
-      res.status(500).send(errMessage);
-    }
-    else res.send("Your submission will be posted momentarily");
-  });
+  else{
+    db.allposts.insert(tableInsertion,(err)=>{
+      if(err){
+        console.log(err);
+        let errMessage = exports.parseErrorMessage(err)
+        res.status(500).send(errMessage);
+      }
+      else res.send("Your submission will be posted momentarily");
+    });
+  }
 };
 
 exports.parseErrorMessage = (errObj) => {

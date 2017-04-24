@@ -12,7 +12,7 @@
       <h3>Source Info</h3>
       <ul>
           <li>Linked Article Title: {{linkAnalysis.title}}</li>
-          <li ng-repeat="a in linkAnalysis.authors">Author: {{a}}</li>
+          <li ng-repeat="a in linkAnalysis.authors">Author: {{a.name}}</li>
           <li>Date Published: {{linkAnalysis.pubDate}}</li>
           <ul>Resources for additional Context:
               <li ng-repeat="s in linkAnalysis.supplements"><a target="_blank" href={{s.link}}>{{s.title}}</a></li>
