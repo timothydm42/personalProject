@@ -28,3 +28,7 @@ button{
   height: 5vh;
   font-size: 3vh;
 }
+
+.responsesPostSection{
+  border: 2px solid gray;
+}

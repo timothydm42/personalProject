@@ -42,6 +42,8 @@ main {
   border-top: 0px;
   border-bottom: 0px; }
 
+.responsesPostSection {
+  border: 2px solid gray; }
 
 * {
   box-sizing: border-box;
@@ -68,6 +70,9 @@ button {
   width: 100%;
   height: 5vh;
   font-size: 3vh; }
+
+.responsesPostSection {
+  border: 2px solid gray; }
 
 
 * {
