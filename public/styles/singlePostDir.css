@@ -32,3 +32,7 @@ button{
 .responsesPostSection{
   border: 2px solid gray;
 }
+
+.about{
+  margin-left: 100px;
+}
