@@ -3,7 +3,7 @@ angular.module("placid").service("placidService",["$http","$q",function($http,$q
   this.testPost = (postObj) => {
     console.log(postObj)
     return $http({
-      url:"http://localhost:3000/submit",
+      url:"/submit",
       method:"POST",
       data:postObj
     })
@@ -11,7 +11,7 @@ angular.module("placid").service("placidService",["$http","$q",function($http,$q
 
   this.postToDB = (postObj) => {
     return $http({
-      url:"http://localhost:3000/database",
+      url:"/database",
       method:"POST",
       data:postObj
     })
@@ -19,21 +19,21 @@ angular.module("placid").service("placidService",["$http","$q",function($http,$q
 
   this.getThesesWId = (postObj) => {
     return $http({
-      url:"http://localhost:3000/theses",
+      url:"/theses",
       method:"GET",
     })
   }
 
   this.getPost = (id) => {
     return $http({
-      url:"http://localhost:3000/post/" + id,
+      url:"/post/" + id,
       method:"GET",
     })
   }
 
   this.getParentResp = (parentId) => {
     return $http({
-      url:"http://localhost:3000/responses/" + parentId,
+      url:"/responses/" + parentId,
       method:"GET",
     })
   }
