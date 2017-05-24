@@ -30,7 +30,8 @@ main {
 
 .navBar {
   display: flex;
-  justify-content: space-around; }
+  justify-content: space-around;
+  margin-bottom: 21px; }
 
 .nav {
   width: 300px;

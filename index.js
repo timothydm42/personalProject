@@ -13,9 +13,9 @@ const express = require("express"),
 const app = express();
 
 const corsOptions = {
-  origin:"http://138.68.11.174:3000",
+  origin:"http://138.68.11.174:4000",
 };
-
+//138.68.11.174
 
 app.use(express.static(__dirname + "/public"))
 app.use(bodyParser.json())
@@ -38,4 +38,4 @@ app.get("/responses/:id",massiveCtrl.getParentResp);
 
 app.put("/link",natCtrl.getLinkContext);
 
-app.listen(3000,()=>console.log("3000 baby"));
+app.listen(4000,()=>console.log("4000 baby"));
