@@ -4,29 +4,32 @@
   color: gray;
   font-family: helvetica; }
 
-.allPostsTitle {
-  text-align: center;
-  font-size: 60px; }
-
 main {
   display: flex;
+  flex-direction: column;
   justify-content: space-around; }
 
 .postCollection {
-  padding: 3px;
-  margin: 6px;
+  padding-left: 18px;
+  padding-bottom: 18px;
+  padding-top: 18px;
+  margin: 0px;
   border: 2px solid gray;
   font-size: 51px;
   text-align: center; }
 
-.postButton {
-  width: 100%;
+.postButton div {
+  width: 7%;
+  border-radius: 50%;
   background-color: gray;
   color: black;
   position: fixed;
-  bottom: 0px;
-  left: 0px;
-  font-size: 75px; }
+  bottom: 27px;
+  right: 27px;
+  font-size: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 .navBar {
   margin-top: 12px;

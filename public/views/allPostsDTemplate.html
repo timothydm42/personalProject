@@ -4,15 +4,14 @@
 
 <link rel="stylesheet" href="../styles/allPostsDir.css"/>
 
-<h1 class="allPostsTitle">All Posts</h1>
-
 <!-- {{theses}} -->
 
 <main>
+  <div class="postCollection" style="text-align:left;"><h2>Forum Posts</h2></div>
   {{fetchMessage}}
-  <button class="postCollection" ng-repeat="t in theses" ui-sref="post({id : t.id})">
+  <a href="#" style="text-decoration: none;"><div class="postCollection" ng-repeat="t in theses" ui-sref="post({id : t.id})">
     {{t.thesis}}
-  </button>
+  </div></a>
 </main>
 
-<a ui-sref="submit"><button class="postButton" type="button"> + </button></a>
+<a ui-sref="submit"><div class="postButton" ><div> + </div></div></a>
