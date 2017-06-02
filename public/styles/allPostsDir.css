@@ -22,7 +22,8 @@ main{
   text-align: center;
 }
 .postButton div{
-  width: 7%;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   background-color: gray;
   color: black;
