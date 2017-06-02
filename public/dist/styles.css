@@ -1,3 +1,7 @@
+.about {
+  margin-left: 100px;
+  margin-right: 100px; }
+
 * {
   box-sizing: border-box;
   background-color: black;
@@ -82,9 +86,6 @@ button {
 
 .responsesPostSection {
   border: 2px solid gray; }
-
-.about {
-  margin-left: 100px; }
 
 
 * {
