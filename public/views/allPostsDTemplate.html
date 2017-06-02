@@ -7,10 +7,11 @@
 <!-- {{theses}} -->
 
 <main>
-  <div class="postCollection" style="text-align:left;"><h2>Forum Posts</h2></div>
+  <div class="postCollection" style="text-align:left; border-bottom: 1px solid gray; margin-bottom: 27px;"><h2>Forum Posts</h2></div>
   {{fetchMessage}}
   <a href="#" style="text-decoration: none;"><div class="postCollection" ng-repeat="t in theses" ui-sref="post({id : t.id})">
     {{t.thesis}}
+    <hr style="width: 1300px; border: 1px solid gray;">
   </div></a>
 </main>
 
